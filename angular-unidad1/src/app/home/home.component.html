@@ -1,3 +1,76 @@
-<p>{{ nombre }}</p>
-<input type="text" [(ngModel)]="nombre" />
-<button (click)="handleChangeName()">Clickeame!</button>
+<div class="w-100 h-100" [ngClass]="{ darkBackground: darkMode == true }">
+  <div class="container h-100">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card" [ngClass]="{ darkCard: darkMode == true }">
+          <img [src]="imgUrl" class="card-img-top" alt="" />
+          <div class="card-body">
+            <h5 class="card-title" [ngClass]="{ darkTypo: darkMode == true }">
+              ¡Hola! Mi nombre es {{ name }}
+            </h5>
+            <p class="card-text" [ngClass]="{ darkTypo: darkMode == true }">
+              Me gusta Angular y tengo {{ age }} años
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6" [ngClass]="{ darkBackground: darkMode == true }">
+        <form>
+          <div class="form-group">
+            <label
+              for="nombreYApellido"
+              [ngClass]="{ darkTypo: darkMode == true }"
+              >Nombre y apellido</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="nombreYApellido"
+              [(ngModel)]="name"
+              name="Nombre y apellido"
+            />
+          </div>
+          <div class="form-group">
+            <label for="edad" [ngClass]="{ darkTypo: darkMode == true }"
+              >Edad</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="edad"
+              [(ngModel)]="age"
+              name="edad"
+            />
+          </div>
+          <div class="form-group">
+            <label for="fotoDePerfil" [ngClass]="{ darkTypo: darkMode == true }"
+              >Url de foto de perfil</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="fotoDePerfil"
+              [(ngModel)]="imgUrl"
+              name="fotoDePerfil"
+            />
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="checkBox"
+              [(ngModel)]="darkMode"
+              name="modoOscuro"
+            />
+            <label
+              class="form-check-label"
+              for="checkBox"
+              [ngClass]="{ darkTypo: darkMode == true }"
+              >Cambiar a modo oscuro</label
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
